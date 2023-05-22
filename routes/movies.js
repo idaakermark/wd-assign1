@@ -34,11 +34,13 @@ router.post('/', (req, res) => {
 
     if (!movie.Title || !movie.Year || !movie.Released || !movie.Genre) {
         return res 
+        .status(400)
         .json({ message: "Alla obligatoriska fält måste fyllas i." })
       }
     
-      if (isNaN(movie.Year) || isNan(movie.released)) {
+      if (isNaN(movie.Year) || isNaN(movie.Released)) {
         return res 
+        .status(400)
         .json ({ message: "Year och reseased måste vara ett nummer" })
       }
 
@@ -63,11 +65,13 @@ router.put('/:imdbID', (req, res) => {
 
     if (!movie.Title || !movie.Year || !movie.Released || !movie.Genre) {
         return res 
+        .status(400)
         .json({ message: "Alla obligatoriska fält måste fyllas i." })
       }
     
-      if (isNaN(movie.Year) || isNan(movie.released)) {
+      if (isNaN(movie.Year) || isNaN(movie.Released)) {
         return res 
+        .status(400)
         .json ({ message: "Year och reseased måste vara ett nummer" })
     }
    
